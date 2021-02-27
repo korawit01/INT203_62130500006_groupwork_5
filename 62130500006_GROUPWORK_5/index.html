@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body class="bg-blue-100">
+  <div id="app" class="">
+    <div id="head" class="flex items-center justify-center">
+      <h1 class="text-5xl font-mono">Photo Gallery ({{ countPic }})</h1>
+    </div>  
+    <photo-search :searching="searching" :inputvalue="inputValue" @open-search="openSearch" @cancel-search="cancelSearch" @search="inputValueSearch" @search="search" @keyup.enter="search"></photo-search>
+    <photo-view :bigpic="bigPic" :bigsrc="bigSrc" @close="close" ></photo-view>
+    <photo-item :photos="search" @toggle-like="toggleLike" @expand="expand"></photo-item>
+  </div>
+  
+    
+
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+  <script src="./components/Photoitem.js"></script>
+  <script src="./components/Photosearch.js"></script>
+  <script src="./components/Photoview.js"></script>
+
+  <script>
+    const mountedApp = app.mount('#app')
+  </script>
+</body>
+
+</html>
